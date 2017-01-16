@@ -1,3 +1,4 @@
+import { ShoppingListService } from './app/shopping-list/shopping-list.service';
 import './polyfills.ts';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
