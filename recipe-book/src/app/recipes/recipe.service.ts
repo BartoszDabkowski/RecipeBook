@@ -21,7 +21,12 @@ private recipes: Recipe[] = [
 
   constructor() { }
 
+
   getRecipes() {
     return this.recipes;
+  }
+
+  getRecipe(id: number){
+    return this.recipes[id];
   }
 }
