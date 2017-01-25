@@ -11,7 +11,7 @@ private recipes: Recipe[] = [
     new Ingredient('Lettace', 1),
     new Ingredient('Tomato Slice', 3)
   ]),    
-  new Recipe('HotDog', 'Delicious', 'http://www.berksfoods.com/wp-content/uploads/2014/02/ph_home_1.png',[
+  new Recipe('HotDog', 'Delicious', 'http://parade.com/wp-content/uploads/2013/07/hot-dog-ftr.jpg',[
     new Ingredient('Bun', 1),
     new Ingredient('Hotdog', 1),
     new Ingredient('Relish', 2),
