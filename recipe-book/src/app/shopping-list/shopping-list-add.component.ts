@@ -1,6 +1,6 @@
 import { ShoppingListService } from './shopping-list.service';
 import { Ingredient } from './../shared/ingredient';
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'rb-shopping-list-add',
@@ -8,6 +8,7 @@ import { Component, OnChanges, Input } from '@angular/core';
 })
 export class ShoppingListAddComponent implements OnChanges {
   @Input() item: Ingredient;
+  @Output() cleared = new EventEmitter();
   isAdd = true;
 
   constructor(private sls: ShoppingListService) { }
@@ -27,10 +28,21 @@ export class ShoppingListAddComponent implements OnChanges {
 
     if(!this.isAdd){
       this.sls.editItem(this.item, newIngredient);
+      this.onClear();
     }
     else{
       this.item = newIngredient;
       this.sls.addItem(this.item);
     }
+  }
+
+  onDelete(){
+    this.sls.deleteItem(this.item);
+    this.onClear();
+  }
+
+  onClear() {
+    this.isAdd = true;
+    this.cleared.emit(null);
   }
 }
